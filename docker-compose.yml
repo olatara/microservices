@@ -1,0 +1,21 @@
+version: '3'
+services:
+  service-1:
+    # image: 'image-repository-uri:latest'
+    build: './service-1'
+    ports:
+      - "3001:3000"
+    depends_on: 
+      - service-2 
+    environment: 
+      - SERVICE_2=service-2
+      - SERVICE_2_PORT=3000
+      - PORT=3000
+
+  service-2:
+    # image: 'image-repository-uri:latest'
+    build: './service-2'
+    ports:
+      - "3002:3000"
+    environment: 
+      - PORT=3000

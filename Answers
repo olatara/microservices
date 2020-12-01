@@ -1,0 +1,27 @@
+
+Part 2. 
+
+The microservices can be deployed to AWS ECS.
+A sample IaC configuration for the main ECS cluster is in file ecs.tf
+buildspec.yml file also includes configuration to build and push docker-compose file. 
+
+Part 3. 
+
+1.  
+sysdiagram.ong contains System Diagram
+
+Amazon ECS is a fully managed container orchestration service. 
+It is a secure, scalable, reliable and cost-optimised service which can be integrated with many other AWS services. 
+
+We create task definitions for each of the service-1 and service-2 using their docker images,
+crete our service, and assing the tasks to the service and an ALB.  
+
+The ALB should be set up, and configure routes through target groups to the proper microservices based on the received API Paths.
+
+2. With AWS CodePipeline, we can integrate a complete CI/CD pipeline, that will build code, run tests, and deploy the new code continuously.
+On push events from the versioning repository, we run the new build and tests and update the docker image in ECR. 
+
+To avoid downtime, we can use rolling updates with teh ECS clusters. 
+When a new service is started after a deplyment, the Amazon ECS service scheduler replaces the current running tasts with the new tasks.
+Using this, there'll alwasy be a new service running, before taking down the current running task based on minumum and maximum configurations.
+
