@@ -29,4 +29,12 @@ This Should start the services on port 3000 and log the message 'Server running 
  
 Service's 1 and 2 should be mapped to local port 3001 and 3002 respectively
 
+Run:
+```sh
+ $curl -d '{ "message":"abcde"}' application/json' localhost:3001/api
+```
+OR
+
+Send Post request with PostMan or Insomnia with json data
+
 -Olatara Bisi-Afolabi
